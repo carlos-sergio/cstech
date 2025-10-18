@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula: Editores HTML - Passo a Passo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Editores HTML</h1>
+            <p class="subtitle">Um editor de texto simples é tudo o que você precisa para aprender HTML.</p>
+        </header>
+
+        <section class="intro">
+            <h2>Aprenda HTML Usando Bloco de Notas ou TextEdit</h2>
+            <p>Páginas web podem ser criadas e modificadas usando editores HTML profissionais.</p>
+            <p>No entanto, para aprender HTML, recomendamos um editor de texto simples como o <strong>Bloco de Notas (PC)</strong> ou <strong>TextEdit (Mac)</strong>.</p>
+            <p>Acreditamos que usar um editor de texto simples é uma ótima maneira de aprender HTML.</p>
+            <p class="highlight">Siga os passos abaixo para criar sua primeira página web!</p>
+        </section>
+
+        <section class="step">
+            <div class="step-header">
+                <span class="step-number">1</span>
+                <h3>Abra o Editor de Texto</h3>
+            </div>
+            
+            <div class="step-content">
+                <div class="platform">
+                    <h4>🖥️ Windows (PC)</h4>
+                    <div class="instructions">
+                        <p><strong>Windows 8 ou posterior:</strong></p>
+                        <ul>
+                            <li>Abra a Tela Inicial (símbolo do Windows no canto inferior esquerdo)</li>
+                            <li>Digite <code>Bloco de Notas</code></li>
+                        </ul>
+                        
+                        <p><strong>Windows 7 ou anterior:</strong></p>
+                        <ul>
+                            <li>Abra Iniciar → Programas → Acessórios → Bloco de Notas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="platform">
+                    <h4>🍎 Mac</h4>
+                    <div class="instructions">
+                        <ul>
+                            <li>Abra Finder → Aplicativos → TextEdit</li>
+                        </ul>
+                        
+                        <p><strong>Configure as preferências:</strong></p>
+                        <ul>
+                            <li>Em Preferências → Formato → escolha <strong>"Texto Simples"</strong></li>
+                            <li>Em "Abrir e Salvar", marque: <strong>"Exibir arquivos HTML como código HTML em vez de texto formatado"</strong></li>
+                            <li>Abra um novo documento para colocar o código</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="step">
+            <div class="step-header">
+                <span class="step-number">2</span>
+                <h3>Escreva um Código HTML</h3>
+            </div>
+            
+            <div class="step-content">
+                <p>Escreva ou copie o seguinte código HTML no editor:</p>
+                
+                <div class="code-container">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Meu Primeiro Título&lt;/h1&gt;
+
+&lt;p&gt;Meu primeiro parágrafo.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <button class="copy-btn" onclick="copyCode()">📋 Copiar Código</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="step">
+            <div class="step-header">
+                <span class="step-number">3</span>
+                <h3>Salve a Página HTML</h3>
+            </div>
+            
+            <div class="step-content">
+                <p>Salve o arquivo no seu computador:</p>
+                <ul>
+                    <li>Selecione <strong>Arquivo → Salvar como</strong> no menu</li>
+                    <li>Nomeie o arquivo como <code>index.htm</code></li>
+                    <li>Defina a codificação como <strong>UTF-8</strong> (codificação preferida para arquivos HTML)</li>
+                </ul>
+                
+                <div class="tip">
+                    <strong>💡 Dica:</strong> Você pode usar <code>.htm</code> ou <code>.html</code> como extensão de arquivo. Não há diferença; fica a seu critério.
+                </div>
+            </div>
+        </section>
+
+        <section class="step">
+            <div class="step-header">
+                <span class="step-number">4</span>
+                <h3>Visualize a Página no Navegador</h3>
+            </div>
+            
+            <div class="step-content">
+                <p>Abra o arquivo HTML salvo no seu navegador favorito:</p>
+                <ul>
+                    <li>Clique duas vezes no arquivo, OU</li>
+                    <li>Clique com o botão direito → escolha <strong>"Abrir com"</strong></li>
+                </ul>
+                
+                <div class="result-preview">
+                    <h4>O resultado será parecido com este:</h4>
+                    <div class="browser-mockup">
+                        <div class="browser-bar">
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                        </div>
+                        <div class="browser-content">
+                            <h1 style="margin: 0 0 10px 0; font-size: 2em;">Meu Primeiro Título</h1>
+                            <p style="margin: 0; font-size: 1.2em;">Meu primeiro parágrafo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bonus">
+            <h2>🌐 Editor Online W3Schools - "Experimente Você Mesmo"</h2>
+            <p>Com o editor online gratuito, você pode editar o código HTML e visualizar o resultado no seu navegador.</p>
+            <p>É a ferramenta perfeita quando você quer testar código rapidamente. Ele também possui coloração de código e a capacidade de salvar e compartilhar código com outras pessoas.</p>
+            
+            <div class="code-container">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Título da Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Este é um Título&lt;/h1&gt;
+&lt;p&gt;Este é um parágrafo.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <p class="highlight">Clique no botão "Experimente Você Mesmo" para ver como funciona!</p>
+        </section>
+
+        <footer>
+            <p>✨ Parabéns! Agora você está pronto para começar a criar suas próprias páginas HTML!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

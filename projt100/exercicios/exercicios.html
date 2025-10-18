@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téc. em Informática - Exercícios</title>
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --text-light: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        /* Conteúdo Principal */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .page-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Seções */
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-warning {
+            background-color: var(--warning-color);
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Formulário de Submissão */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .aluno-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .aluno-input-group .form-group {
+            flex: 1;
+        }
+        
+        .btn-remove {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-add {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        /* Mural de Exercícios */
+        .atividade-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .atividade-header {
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        
+        .atividade-title {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .atividade-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .exercicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid #e9ecef;
+            border-top: none;
+        }
+        
+        .sem-exercicios {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .exercicio-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .exercicio-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .exercicio-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+        }
+        
+        .exercicio-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .exercicio-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .exercicio-content {
+            padding: 15px;
+        }
+        
+        .exercicio-desc {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .alunos-list {
+            margin-bottom: 15px;
+        }
+        
+        .aluno-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .aluno-item:last-child {
+            border-bottom: none;
+        }
+        
+        .aluno-nome {
+            font-weight: 500;
+        }
+        
+        .aluno-matricula {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .exercicio-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .exercicio-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e0e0e0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Modal de Visualização */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 95%;
+            height: 95%;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .modal-body {
+            flex: 1;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .preview-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Mensagens */
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* Filtros */
+        .filtros {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filtro-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Ajuda */
+        .form-help {
+            margin-top: 8px;
+        }
+        
+        .form-help details {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        
+        .form-help summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .help-content {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .help-content h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .option {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .option strong {
+            color: var(--secondary-color);
+        }
+        
+        .option ol {
+            margin: 8px 0 0 20px;
+        }
+        
+        .option li {
+            margin-bottom: 5px;
+        }
+        
+        .option a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .option a:hover {
+            text-decoration: underline;
+        }
+        
+        .option code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .exercicios-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .filtros {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💻</span>
+                    <h1>Téc. em Informática</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="aulas.html">Aulas</a></li>
+                        <li><a href="materiais.html">Materiais</a></li>
+                        <li><a href="exercicios.html" class="active">Exercícios</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="page-title">
+            <h2>Exercícios e Trabalhos</h2>
+            <p>Envie seus trabalhos HTML/CSS e visualize os projetos dos colegas</p>
+        </div>
+
+        <!-- Seção de Submissão -->
+        <section class="section">
+            <div class="section-header">
+                <h3 class="section-title">Enviar Novo Exercício</h3>
+            </div>
+            
+            <div id="messageArea"></div>
+            
+            <form id="formExercicio">
+                <div class="form-group">
+                    <label for="atividadeExercicio">Atividade *</label>
+                    <select id="atividadeExercicio" class="form-control" required>
+                        <option value="">Selecione a atividade...</option>
+                        <option value="portfolio">Portfólio Pessoal</option>
+                        <option value="formulario">Formulário de Contato</option>
+                        <option value="landing">Landing Page</option>
+                        <option value="blog">Blog Pessoal</option>
+                        <option value="dashboard">Dashboard Simples</option>
+                        <option value="ecommerce">Loja Virtual Básica</option>
+                        <option value="outro">Outra Atividade</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tituloExercicio">Título do Exercício *</label>
+                    <input type="text" id="tituloExercicio" class="form-control" required placeholder="Ex: Meu Portfólio Digital">
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricaoExercicio">Descrição *</label>
+                    <textarea id="descricaoExercicio" class="form-control" required placeholder="Descreva brevemente o exercício ou trabalho"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="urlExercicio">URL do Projeto *</label>
+                    <input type="url" id="urlExercicio" class="form-control" required placeholder="https://meuusuario.github.io/meu-projeto">
+                    <div class="form-help">
+                        <details>
+                            <summary>📚 Como publicar meu projeto gratuitamente?</summary>
+                            <div class="help-content">
+                                <h4>Opções rápidas e gratuitas:</h4>
+                                
+                                <div class="option">
+                                    <strong>GitHub Pages (Recomendado):</strong>
+                                    <ol>
+                                        <li>Crie conta em <a href="https://github.com" target="_blank">GitHub</a></li>
+                                        <li>Faça upload dos seus arquivos HTML/CSS/JS</li>
+                                        <li>Ative GitHub Pages nas configurações do repositório</li>
+                                        <li>URL ficará: <code>username.github.io/nome-repositorio</code></li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="option">
+                                    <strong>Netlify Drop (Mais fácil):</strong>
+                                    <ol>
+                                        <li>Acesse <a href="https://app.netlify.com/drop" target="_blank">Netlify Drop</a></li>
+                                        <li>Arraste e solte a pasta com seus arquivos</li>
+                                        <li>Pronto! Site publicado instantaneamente</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="option">
+                                    <strong>CodePen (Para projetos menores):</strong>
+                                    <ol>
+                                        <li>Crie conta no <a href="https://codepen.io" target="_blank">CodePen</a></li>
+                                        <li>Cole seu HTML, CSS e JavaScript</li>
+                                        <li>Salve como "Public" e compartilhe o link</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tagsExercicio">Tags (separadas por vírgula)</label>
+                    <input type="text" id="tagsExercicio" class="form-control" placeholder="Ex: HTML, CSS, Portfolio, Formulário">
+                </div>
+                
+                <div class="form-group">
+                    <label>Alunos Envolvidos (máximo 3) *</label>
+                    <div id="alunosContainer">
+                        <div class="form-row aluno-input-group">
+                            <div class="form-group">
+                                <input type="text" class="form-control aluno-nome" required placeholder="Nome do aluno">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control aluno-matricula" required placeholder="4 primeiros dígitos da matrícula" maxlength="4" pattern="[0-9]{4}">
+                            </div>
+                            <button type="button" class="btn-remove" style="display: none;">×</button>
+                        </div>
+                    </div>
+                    <button type="button" id="btnAddAluno" class="btn-add">+</button>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Enviar Exercício</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Seção de Exercícios Submetidos -->
+        <section class="section">
+            <div class="section-header">
+                <h3 class="section-title">Mural de Exercícios</h3>
+                <div class="filtros">
+                    <div class="filtro-group">
+                        <label for="filtroAtividade">Filtrar por atividade:</label>
+                        <select id="filtroAtividade" class="form-control">
+                            <option value="todas">Todas as atividades</option>
+                            <option value="portfolio">Portfólio Pessoal</option>
+                            <option value="formulario">Formulário de Contato</option>
+                            <option value="landing">Landing Page</option>
+                            <option value="blog">Blog Pessoal</option>
+                            <option value="dashboard">Dashboard Simples</option>
+                            <option value="ecommerce">Loja Virtual Básica</option>
+                            <option value="outro">Outra Atividade</option>
+                        </select>
+                    </div>
+                    <div class="filtro-group">
+                        <input type="text" id="filtroBusca" class="form-control" placeholder="Buscar por título, aluno...">
+                    </div>
+                </div>
+            </div>
+
+            <div id="muralAtividades">
+                <!-- As atividades serão geradas dinamicamente aqui -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Visualização -->
+    <div class="modal" id="modalVisualizacao">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitulo">Visualização do Exercício</h3>
+                <button class="close-modal" id="closeVisualizacao">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="preview-frame" id="previewFrame" src="about:blank"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Téc. em Informática</h3>
+                    <p>Portal de aulas e materiais para o curso técnico em informática.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="index.html">Início</a>
+                    <a href="aulas.html">Aulas</a>
+                    <a href="materiais.html">Materiais</a>
+                    <a href="exercicios.html">Exercícios</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: contato@tecinformatica.com</p>
+                    <p>Telefone: (11) 1234-5678</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Téc. em Informática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dados das atividades
+        const atividades = {
+            'portfolio': {
+                titulo: 'Portfólio Pessoal',
+                descricao: 'Site pessoal com informações de contato, habilidades e projetos desenvolvidos.'
+            },
+            'formulario': {
+                titulo: 'Formulário de Contato',
+                descricao: 'Formulário de contato funcional com validação e estilização moderna.'
+            },
+            'landing': {
+                titulo: 'Landing Page',
+                descricao: 'Página de captura para produto ou serviço com call-to-action eficiente.'
+            },
+            'blog': {
+                titulo: 'Blog Pessoal',
+                descricao: 'Blog com layout responsivo para publicação de artigos e conteúdo.'
+            },
+            'dashboard': {
+                titulo: 'Dashboard Simples',
+                descricao: 'Painel administrativo com gráficos e métricas básicas.'
+            },
+            'ecommerce': {
+                titulo: 'Loja Virtual Básica',
+                descricao: 'E-commerce simples com catálogo de produtos e carrinho de compras.'
+            },
+            'outro': {
+                titulo: 'Outras Atividades',
+                descricao: 'Trabalhos e exercícios diversos realizados pelos alunos.'
+            }
+        };
+
+        // Elementos do DOM
+        const formExercicio = document.getElementById('formExercicio');
+        const alunosContainer = document.getElementById('alunosContainer');
+        const btnAddAluno = document.getElementById('btnAddAluno');
+        const muralAtividades = document.getElementById('muralAtividades');
+        const modalVisualizacao = document.getElementById('modalVisualizacao');
+        const previewFrame = document.getElementById('previewFrame');
+        const closeVisualizacao = document.getElementById('closeVisualizacao');
+        const modalTitulo = document.getElementById('modalTitulo');
+        const messageArea = document.getElementById('messageArea');
+        const filtroBusca = document.getElementById('filtroBusca');
+        const filtroAtividade = document.getElementById('filtroAtividade');
+
+        // Armazenamento de exercícios
+        let exercicios = JSON.parse(localStorage.getItem('exercicios')) || [
+            {
+                id: 1,
+                atividade: 'portfolio',
+                titulo: 'Portfólio Pessoal',
+                descricao: 'Site pessoal com informações de contato, habilidades e projetos.',
+                url: 'https://exemplo.com/portfolio',
+                tags: ['HTML', 'CSS', 'Portfolio'],
+                alunos: [
+                    { nome: 'João Silva', matricula: '2023' }
+                ],
+                data: '2023-04-10'
+            },
+            {
+                id: 2,
+                atividade: 'formulario',
+                titulo: 'Formulário de Contato',
+                descricao: 'Formulário de contato com validação e estilização moderna.',
+                url: 'https://exemplo.com/formulario',
+                tags: ['HTML', 'CSS', 'Formulário', 'JavaScript'],
+                alunos: [
+                    { nome: 'Maria Santos', matricula: '2024' },
+                    { nome: 'Pedro Oliveira', matricula: '2025' }
+                ],
+                data: '2023-04-15'
+            }
+        ];
+
+        // Contador de alunos
+        let alunoCount = 1;
+
+        // Inicializar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarMural();
+        });
+
+        // Adicionar campo de aluno
+        btnAddAluno.addEventListener('click', () => {
+            if (alunoCount < 3) {
+                alunoCount++;
+                const novoAluno = document.createElement('div');
+                novoAluno.className = 'form-row aluno-input-group';
+                novoAluno.innerHTML = `
+                    <div class="form-group">
+                        <input type="text" class="form-control aluno-nome" required placeholder="Nome do aluno">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control aluno-matricula" required placeholder="4 primeiros dígitos da matrícula" maxlength="4" pattern="[0-9]{4}">
+                    </div>
+                    <button type="button" class="btn-remove">×</button>
+                `;
+                alunosContainer.appendChild(novoAluno);
+                
+                if (alunoCount === 3) {
+                    btnAddAluno.style.display = 'none';
+                }
+                
+                if (alunoCount > 1) {
+                    document.querySelectorAll('.btn-remove').forEach(btn => {
+                        btn.style.display = 'block';
+                    });
+                }
+            }
+        });
+
+        // Remover campo de aluno
+        alunosContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-remove')) {
+                const alunoGroup = e.target.closest('.aluno-input-group');
+                if (alunoCount > 1) {
+                    alunoGroup.remove();
+                    alunoCount--;
+                    
+                    if (alunoCount < 3) {
+                        btnAddAluno.style.display = 'flex';
+                    }
+                    
+                    if (alunoCount === 1) {
+                        document.querySelector('.btn-remove').style.display = 'none';
+                    }
+                }
+            }
+        });
+
+        // Submeter exercício
+        formExercicio.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const atividade = document.getElementById('atividadeExercicio').value;
+            const titulo = document.getElementById('tituloExercicio').value;
+            const descricao = document.getElementById('descricaoExercicio').value;
+            const url = document.getElementById('urlExercicio').value;
+            const tagsInput = document.getElementById('tagsExercicio').value;
+            
+            const alunos = [];
+            document.querySelectorAll('.aluno-input-group').forEach(group => {
+                const nome = group.querySelector('.aluno-nome').value;
+                const matricula = group.querySelector('.aluno-matricula').value;
+                if (nome && matricula) {
+                    alunos.push({ nome, matricula });
+                }
+            });
+            
+            if (alunos.length === 0) {
+                showMessage('Por favor, adicione pelo menos um aluno.', 'error');
+                return;
+            }
+            
+            const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag);
+            
+            const novoExercicio = {
+                id: Date.now(),
+                atividade: atividade,
+                titulo: titulo,
+                descricao: descricao,
+                url: url,
+                tags: tags,
+                alunos: alunos,
+                data: new Date().toISOString().split('T')[0]
+            };
+            
+            exercicios.push(novoExercicio);
+            salvarExercicios();
+            
+            formExercicio.reset();
+            alunosContainer.innerHTML = `
+                <div class="form-row aluno-input-group">
+                    <div class="form-group">
+                        <input type="text" class="form-control aluno-nome" required placeholder="Nome do aluno">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control aluno-matricula" required placeholder="4 primeiros dígitos da matrícula" maxlength="4" pattern="[0-9]{4}">
+                    </div>
+                    <button type="button" class="btn-remove" style="display: none;">×</button>
+                </div>
+            `;
+            alunoCount = 1;
+            btnAddAluno.style.display = 'flex';
+            
+            renderizarMural();
+            showMessage('Exercício enviado com sucesso!', 'success');
+        });
+
+        // Renderizar mural de atividades
+        function renderizarMural() {
+            const filtroAtiv = filtroAtividade.value;
+            const termoBusca = filtroBusca.value.toLowerCase();
+            
+            let exerciciosFiltrados = exercicios;
+            
+            // Aplicar filtros
+            if (filtroAtiv !== 'todas') {
+                exerciciosFiltrados = exerciciosFiltrados.filter(ex => ex.atividade === filtroAtiv);
+            }
+            
+            if (termoBusca) {
+                exerciciosFiltrados = exerciciosFiltrados.filter(ex => 
+                    ex.titulo.toLowerCase().includes(termoBusca) ||
+                    ex.descricao.toLowerCase().includes(termoBusca) ||
+                    ex.alunos.some(aluno => aluno.nome.toLowerCase().includes(termoBusca)) ||
+                    ex.tags.some(tag => tag.toLowerCase().includes(termoBusca))
+                );
+            }
+            
+            // Agrupar exercícios por atividade
+            const exerciciosPorAtividade = {};
+            exerciciosFiltrados.forEach(exercicio => {
+                if (!exerciciosPorAtividade[exercicio.atividade]) {
+                    exerciciosPorAtividade[exercicio.atividade] = [];
+                }
+                exerciciosPorAtividade[exercicio.atividade].push(exercicio);
+            });
+            
+            // Renderizar as seções de atividades
+            muralAtividades.innerHTML = '';
+            
+            Object.keys(atividades).forEach(atividadeKey => {
+                const exerciciosDaAtividade = exerciciosPorAtividade[atividadeKey] || [];
+                
+                // Só mostrar atividades que têm exercícios ou quando não há filtro
+                if (exerciciosDaAtividade.length > 0 || filtroAtiv === 'todas') {
+                    const atividadeSection = document.createElement('div');
+                    atividadeSection.className = 'atividade-section';
+                    atividadeSection.innerHTML = `
+                        <div class="atividade-header">
+                            <h3 class="atividade-title">${atividades[atividadeKey].titulo}</h3>
+                            <p class="atividade-desc">${atividades[atividadeKey].descricao}</p>
+                        </div>
+                        <div class="exercicios-grid" id="grid-${atividadeKey}">
+                            ${exerciciosDaAtividade.length > 0 ? 
+                                exerciciosDaAtividade.map(exercicio => `
+                                    <div class="exercicio-card" data-atividade="${exercicio.atividade}">
+                                        <div class="exercicio-header">
+                                            <h4 class="exercicio-title">${exercicio.titulo}</h4>
+                                            <div class="exercicio-meta">Enviado em: ${formatarData(exercicio.data)}</div>
+                                        </div>
+                                        <div class="exercicio-content">
+                                            <p class="exercicio-desc">${exercicio.descricao}</p>
+                                            <div class="alunos-list">
+                                                ${exercicio.alunos.map(aluno => `
+                                                    <div class="aluno-item">
+                                                        <span class="aluno-nome">${aluno.nome}</span>
+                                                        <span class="aluno-matricula">${aluno.matricula}</span>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                            <div class="tags">
+                                                ${exercicio.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                        <div class="exercicio-footer">
+                                            <div class="exercicio-actions">
+                                                <button class="btn btn-warning btn-visualizar" data-url="${exercicio.url}">Visualizar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('') : 
+                                '<div class="sem-exercicios">Nenhum exercício enviado para esta atividade ainda.</div>'
+                            }
+                        </div>
+                    `;
+                    muralAtividades.appendChild(atividadeSection);
+                }
+            });
+        }
+
+        // Visualizar exercício
+        muralAtividades.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-visualizar')) {
+                const url = e.target.getAttribute('data-url');
+                const titulo = e.target.closest('.exercicio-card').querySelector('.exercicio-title').textContent;
+                
+                modalTitulo.textContent = titulo;
+                previewFrame.src = url;
+                modalVisualizacao.style.display = 'flex';
+            }
+        });
+
+        // Fechar modal de visualização
+        closeVisualizacao.addEventListener('click', () => {
+            modalVisualizacao.style.display = 'none';
+            previewFrame.src = 'about:blank';
+        });
+
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', (e) => {
+            if (e.target === modalVisualizacao) {
+                modalVisualizacao.style.display = 'none';
+                previewFrame.src = 'about:blank';
+            }
+        });
+
+        // Filtros
+        filtroAtividade.addEventListener('change', renderizarMural);
+        filtroBusca.addEventListener('input', renderizarMural);
+
+        // Utilitários
+        function formatarData(dataString) {
+            const data = new Date(dataString);
+            return data.toLocaleDateString('pt-BR');
+        }
+
+        function showMessage(text, type) {
+            messageArea.innerHTML = `<div class="message ${type}">${text}</div>`;
+            setTimeout(() => {
+                messageArea.innerHTML = '';
+            }, 5000);
+        }
+
+        function salvarExercicios() {
+            localStorage.setItem('exercicios', JSON.stringify(exercicios));
+        }
+    </script>
+</body>
+</html>
